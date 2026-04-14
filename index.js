@@ -43,5 +43,39 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
 
+
+const bookStoreTitle = document.getElementById("header");
+const bookList = document.getElementById("book-list");
+
+// updated header
+
+bookStoreTitle.textContent = bookStore.name;
+
+
+bookStore.books.forEach((book) => {
+
+  //  create elements
+
+  const bookContainer = document.createElement("li");
+  const bookTitle = document.createElement("h3");
+  const bookAuthor = document.createElement("p");
+  const bookImage = document.createElement("img");
+
+  // added content
+
+  bookTitle.textContent = book.title;
+  bookAuthor.textContent = book.author;
+  bookImage.src = book.image  || book.imageUrl;
+
+  // appended to the header
+
+  bookContainer.appendChild(bookTitle);
+  bookContainer.appendChild(bookAuthor);
+  bookContainer.appendChild(bookImage);
+
+  // APPEND TO PAGE
+
+  bookList.appendChild(bookContainer);
+  
+});
